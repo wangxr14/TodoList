@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<h2>Todo</h2>
+
+<button type="button" class="btn btn-info" id="addBtn" data-toggle="modal" data-target="#AddTaskModal">Add A Task</button>
+<button type="button" class="btn btn-danger" id="delBtn">Delete</button>
+<button type="button" class="btn btn-success" id="doneBtn">Done</button>
+<ul class="list-group" id="taskList">
+{%for item in todoitems %}
+<a href="#" class="list-group-item"><input type="checkbox"></input>{{item}}<button type="button" class="btn btn-info editBtn">Edit</button></a>
+{%endfor%}
+</ul>
+<br><br><br>
+<h2>Done</h2>
+<ul class="list-group" id="doneList">
+{%for item in doneitems %}
+<a href="#" class="list-group-item"><input type="checkbox"></input>{{item}}<button type="button" class="btn btn-info editBtn">Edit</button></a>
+{%endfor%}
+</ul>
+
+<div class="modal fade" id="AddTaskModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">New Task</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+				<input type="text" class="form-control" id="newTaskInfo" placeholder="Task Info...">
+			</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="EditTaskModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Task</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+				<input type="text" class="form-control" id="preTaskInfo">
+			</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveEditionBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="static/js/list.js"></script>
+
